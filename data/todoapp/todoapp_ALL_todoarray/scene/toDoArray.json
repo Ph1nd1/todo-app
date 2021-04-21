@@ -1,0 +1,17 @@
+{
+  "sceneName": "toDoArray",
+  "data": {
+    "toDoArray": [
+      "Sleep",
+      "Work"
+    ]
+  },
+  "interfaceUniqId": "8f49bd7d-371a-4134-9ded-46b0cd09eaac",
+  "contextConfig": {
+    "responseDelay": 0,
+    "responseStatus": 200,
+    "responseHeaders": {}
+  },
+  "uniqId": "c3ea0694-9ca8-4a46-8407-dfd85c16cf9b",
+  "format": "json"
+}
