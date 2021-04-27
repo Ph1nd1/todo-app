@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "UpdateToDo",
@@ -17,16 +17,31 @@ export default {
     toDo: String
   },
   methods: {
+    ...mapActions(['updatedToDo']),
     updateToDo() {
-      this.$set(
-        this.toDoArray,
-        this.toDoArray.indexOf(this.toDo),
-        document.getElementById("todo").value
-      );
+      const updatedToDo = document.getElementById("todo").value;
+      const toDo = this.toDo;
+      this.updatedToDo({toDo, updatedToDo});
+      this.$emit("updated");
     }
   }
 };
 </script>
 
 <style scoped>
+input {
+  border: none;
+  padding: 5px;
+  width: 60%;
+  font-size: 0.8em;
+
+}
+button {
+  width: fit-content;
+  text-align: center;
+  border: none;
+  padding: 5px;
+  font-size: 0.8em;
+
+}
 </style>

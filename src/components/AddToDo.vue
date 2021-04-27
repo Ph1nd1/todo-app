@@ -22,9 +22,7 @@ export default {
     ...mapActions(['addToDo']),
     saveToDo() {
       this.addToDo(this.newToDo);
-      // this.toDoArray.push(this.newToDo);
-      this.newToDo = ''
-      console.log(this.toDoArray)
+      this.newToDo = '';
     },
   },
 };

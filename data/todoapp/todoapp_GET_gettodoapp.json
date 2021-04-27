@@ -1,0 +1,10 @@
+{
+  "protocol": "http",
+  "pathname": "gettodoapp",
+  "method": "GET",
+  "projectUniqId": "c4f605dd-0cee-452f-9d1f-5d678153b36a",
+  "description": "To Do App",
+  "currentScene": "getToDoArray",
+  "proxyConfig": {},
+  "uniqId": "f330ce87-6b65-4c83-acc5-76e7cebb91c0"
+}

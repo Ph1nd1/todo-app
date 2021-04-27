@@ -1,20 +1,20 @@
 <template>
   <div>
     <ul>
-      <li class="item" v-for="toDo in toDoArray" :key="toDo">
+      <li class="item" v-for="toDo in toDoArray" :key="toDo" id="">
         <input
           type="checkbox"
           :id="toDo"
           :value="toDo"
-          @click="done(toDo)"
+          @click="done()"
         />
         <button class="updateToDo" @click="updateToDo(toDo)" :id="toDo">
           🖊️
         </button>
-        <span :class="toDo">{{ toDo }}</span>
+        <span :class="toDo" :style="line">{{ toDo }}</span>
         <button class="removeToDo" @click="removeToDo(toDo)">X</button>
       </li>
-      <UpdateToDo v-if="toDo" :toDo="toDo" />
+      <UpdateToDo v-if="toDo" :toDo="toDo" @updated="updated"/>
     </ul>
   </div>
 </template>
@@ -31,30 +31,31 @@ export default {
   data() {
     return {
       updatedToDo: "",
-      toDo: ""
+      toDo: "",
+      line: ''
     };
   },
   computed: mapGetters(["toDoArray"]),
   methods: {
-    ...mapActions(['getToDoArray']),
+    ...mapActions(['getToDoArray', 'deleteToDo']),
     removeToDo(toDo) {
-      for (let i = 0; i < this.toDoArray.length; i++) {
-        if (toDo == this.toDoArray[i]) {
-          this.toDoArray.splice(this.toDoArray.indexOf(this.toDoArray[i]), 1);
-        }
-      }
+      this.deleteToDo(toDo)
     },
     updateToDo(toDo) {
       this.toDo = toDo;
     },
-    done(toDo) {
-      const toDoDone = document.querySelector(`.${toDo}`);
-      if (document.getElementById(`${toDo}`).checked) {
-        toDoDone.style.setProperty("text-decoration", "line-through");
+    done() {
+      const text = event.path[1].childNodes[4]
+      const toDoDone = event.target.defaultValue;
+      if (document.getElementById(`${toDoDone}`).checked) {
+        text.style.setProperty("text-decoration", "line-through");
         return;
       }
-      toDoDone.style.setProperty("text-decoration", "none");
-    }
+      text.style.setProperty("text-decoration", "none");
+    },
+  updated() {
+    this.toDo = '';
+  }
   },
   created() {
     this.getToDoArray();
