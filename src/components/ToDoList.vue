@@ -2,19 +2,14 @@
   <div>
     <ul>
       <li class="item" v-for="toDo in toDoArray" :key="toDo" id="">
-        <input
-          type="checkbox"
-          :id="toDo"
-          :value="toDo"
-          @click="done()"
-        />
+        <input type="checkbox" :id="toDo" :value="toDo" @click="done()" />
         <button class="updateToDo" @click="updateToDo(toDo)" :id="toDo">
           🖊️
         </button>
         <span :class="toDo" :style="line">{{ toDo }}</span>
         <button class="removeToDo" @click="removeToDo(toDo)">X</button>
       </li>
-      <UpdateToDo v-if="toDo" :toDo="toDo" @updated="updated"/>
+      <UpdateToDo v-if="toDo" :toDo="toDo" @updated="updated" />
     </ul>
   </div>
 </template>
@@ -32,20 +27,20 @@ export default {
     return {
       updatedToDo: "",
       toDo: "",
-      line: ''
+      line: ""
     };
   },
   computed: mapGetters(["toDoArray"]),
   methods: {
-    ...mapActions(['getToDoArray', 'deleteToDo']),
+    ...mapActions(["getToDoArray", "deleteToDo"]),
     removeToDo(toDo) {
-      this.deleteToDo(toDo)
+      this.deleteToDo(toDo);
     },
     updateToDo(toDo) {
       this.toDo = toDo;
     },
     done() {
-      const text = event.path[1].childNodes[4]
+      const text = event.path[1].childNodes[4];
       const toDoDone = event.target.defaultValue;
       if (document.getElementById(`${toDoDone}`).checked) {
         text.style.setProperty("text-decoration", "line-through");
@@ -53,9 +48,9 @@ export default {
       }
       text.style.setProperty("text-decoration", "none");
     },
-  updated() {
-    this.toDo = '';
-  }
+    updated() {
+      this.toDo = "";
+    }
   },
   created() {
     this.getToDoArray();

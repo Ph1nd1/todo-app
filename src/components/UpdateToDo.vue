@@ -17,11 +17,11 @@ export default {
     toDo: String
   },
   methods: {
-    ...mapActions(['updatedToDo']),
+    ...mapActions(["updatedToDo"]),
     updateToDo() {
       const updatedToDo = document.getElementById("todo").value;
       const toDo = this.toDo;
-      this.updatedToDo({toDo, updatedToDo});
+      this.updatedToDo({ toDo, updatedToDo });
       this.$emit("updated");
     }
   }
@@ -34,7 +34,6 @@ input {
   padding: 5px;
   width: 60%;
   font-size: 0.8em;
-
 }
 button {
   width: fit-content;
@@ -42,6 +41,5 @@ button {
   border: none;
   padding: 5px;
   font-size: 0.8em;
-
 }
 </style>

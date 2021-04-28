@@ -8,23 +8,23 @@
 </template>
 
 <script>
-import {mapGetters, mapActions} from 'vuex';
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "AddToDo",
   data() {
     return {
-      newToDo: "",
+      newToDo: ""
     };
-  }, 
-  computed: mapGetters(['toDoArray']),
+  },
+  computed: mapGetters(["toDoArray"]),
   methods: {
-    ...mapActions(['addToDo']),
+    ...mapActions(["addToDo"]),
     saveToDo() {
       this.addToDo(this.newToDo);
-      this.newToDo = '';
-    },
-  },
+      this.newToDo = "";
+    }
+  }
 };
 </script>
 
@@ -35,7 +35,6 @@ input {
   padding: 5px;
   width: 75%;
   font-size: 1em;
-
 }
 button {
   width: fit-content;
@@ -43,6 +42,5 @@ button {
   border: none;
   padding: 5px;
   font-size: 1em;
-
 }
 </style>
