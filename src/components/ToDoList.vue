@@ -6,7 +6,7 @@
         <button class="updateToDo" @click="updateToDo(toDo)" :id="toDo">
           🖊️
         </button>
-        <span :class="toDo" :style="line">{{ toDo }}</span>
+        <span :class="toDo">{{ toDo }}</span>
         <button class="removeToDo" @click="removeToDo(toDo)">X</button>
       </li>
       <UpdateToDo v-if="toDo" :toDo="toDo" @updated="updated" />
@@ -26,8 +26,7 @@ export default {
   data() {
     return {
       updatedToDo: "",
-      toDo: "",
-      line: ""
+      toDo: ""
     };
   },
   computed: mapGetters(["toDoArray"]),

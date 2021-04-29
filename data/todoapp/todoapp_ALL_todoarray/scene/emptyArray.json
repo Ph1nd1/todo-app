@@ -1,0 +1,14 @@
+{
+  "sceneName": "emptyArray",
+  "data": {
+    "toDoArray": []
+  },
+  "interfaceUniqId": "8f49bd7d-371a-4134-9ded-46b0cd09eaac",
+  "contextConfig": {
+    "responseDelay": 0,
+    "responseStatus": 200,
+    "responseHeaders": {}
+  },
+  "uniqId": "4aec0b20-09fa-4ed1-afc7-7265f17fa651",
+  "format": "json"
+}

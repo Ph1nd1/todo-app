@@ -1,10 +1,8 @@
 {
-  "sceneName": "getToDoArray",
+  "sceneName": "deleteStatus",
   "data": {
-    "toDoArray": [
-      "Sleep",
-      "Work"
-    ]
+    "status": 200,
+    "deletion": "completed"
   },
   "interfaceUniqId": "f330ce87-6b65-4c83-acc5-76e7cebb91c0",
   "contextConfig": {

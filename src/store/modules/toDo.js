@@ -1,8 +1,9 @@
 import axios from "axios";
 
+const BASE_URL = "http://localhost:5678/data/todoapp";
+
 const state = {
   toDoArray: [],
-  toDo: "",
 };
 
 const getters = {
@@ -12,36 +13,28 @@ const getters = {
 
 const actions = {
   async getToDoArray({ commit }) {
-    const response = await axios
-      .get("http://localhost:5678/data/todoapp/todoarray")
-      .catch((error) => {
-        console.log(error);
-      });
+    const response = await axios.get(`${BASE_URL}/todoarray`).catch((error) => {
+      console.log(error);
+    });
     commit("setToDoArray", response.data.toDoArray);
   },
 
   async addToDo({ commit }, newToDo) {
-    const response = await axios.post(
-      "http://localhost:5678/data/todoapp/todoarray",
-      { newToDo }
-    );
+    await axios.post(`${BASE_URL}/todoarray`, { newToDo });
     commit("addToDo", newToDo);
   },
 
   async deleteToDo({ commit }, toDo) {
-    const response = await axios.delete(
-      "http://localhost:5678/data/todoapp/todoarray",
-      { toDo }
-    );
-    console.log(toDo);
+    const response = await axios.delete(`${BASE_URL}/deletetodo`, { toDo });
+    console.log(response.data);
     commit("deleteToDo", toDo);
   },
 
   async updatedToDo({ commit }, { toDo, updatedToDo }) {
-    const response = await axios.put(
-      "http://localhost:5678/data/todoapp/todoarray",
-      { toDo, updatedToDo }
-    );
+    await axios.put(`${BASE_URL}/todoarray`, {
+      toDo,
+      updatedToDo,
+    });
 
     commit("updatedToDo", { toDo, updatedToDo });
   },

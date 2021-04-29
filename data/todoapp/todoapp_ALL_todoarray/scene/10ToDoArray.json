@@ -1,0 +1,25 @@
+{
+  "sceneName": "10ToDoArray",
+  "data": {
+    "toDoArray": [
+      "Sleep early",
+      "Eat healthy",
+      "Do Math homework",
+      "Call Sam",
+      "Read 2 books",
+      "Watch tutorial",
+      "Hike",
+      "Buy airtime",
+      "Fix tap",
+      "Pray more"
+    ]
+  },
+  "interfaceUniqId": "8f49bd7d-371a-4134-9ded-46b0cd09eaac",
+  "contextConfig": {
+    "responseDelay": 0,
+    "responseStatus": 200,
+    "responseHeaders": {}
+  },
+  "uniqId": "84857402-1864-4db2-a021-11c403d61d6f",
+  "format": "json"
+}
